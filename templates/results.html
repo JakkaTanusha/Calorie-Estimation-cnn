@@ -1,0 +1,285 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>SmartBite</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <link rel="manifest" href="site.webmanifest"> -->
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../static/css/magnific-popup.css">
+    <link rel="stylesheet" href="../static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/css/themify-icons.css">
+    <link rel="stylesheet" href="../static/css/nice-select.css">
+    <link rel="stylesheet" href="../static/css/flaticon.css">
+    <link rel="stylesheet" href="../static/css/gijgo.css">
+    <link rel="stylesheet" href="../static/css/animate.min.css">
+    <link rel="stylesheet" href="../static/css/slick.css">
+    <link rel="stylesheet" href="../static/css/slicknav.css">
+    <link rel="stylesheet" href="../static/css/result.css">
+    <!-- <link rel="stylesheet" href="css/responsive.css"> -->
+    <link
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+    rel="stylesheet"
+/>
+<style>
+.containers {
+    margin: 30px auto;
+    width: 600px;
+    height: 900px;
+}
+.qcont:first-letter {
+    text-transform: capitalize
+  }
+polyline {
+    fill: none;
+    stroke: #000000;
+    stroke-width: 2px;
+    stroke-dasharray: 5px;
+}
+
+fieldset {
+    border: 2px solid black;
+    margin: auto;
+    padding: 40px;
+    text-align: center;
+}
+ 
+
+ 
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td,
+th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+ 
+
+/*body {
+      background-color: #FDEDEC;
+  }*/
+</style>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+
+<body>
+    <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+
+    <!-- header-start -->
+    <header>
+        <div class="header-area ">
+            <div id="sticky-header" class="main-header-area ">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-xl-3 col-lg-2">
+                            <div class="logo">
+                                <a href="index.html">
+                                    <img src="img/logo.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-7">
+                            <div class="main-menu white_text  d-none d-lg-block">
+                                <nav>
+                                    <ul id="navigation">
+                                        <li><a href="{{url_for('index')}}">Home</a></li>
+                                        <li><a href="{{url_for('login')}}">Login</a></li>
+                                        <li><a href="{{url_for('recognize')}}">Preview</a></li>
+                                        <li><a href="{{url_for('chart')}}">chart</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-3 d-none d-lg-block">
+                            
+                        </div>
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-end -->
+
+    <!-- bradcam_area  -->
+    <div class="bradcam_area bradcam_bg_1">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="bradcam_text text-center">
+                        <h3>Result</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /bradcam_area  -->
+
+    <!-- recepie_header_area  -->
+     
+    <div class="recepie_header_area">
+        <center> <h3>Calorie Estimation of Food and Beverages using Deep Learning</h3></center>
+        <div class="containers">
+           
+            <div class="row justify-content-center">
+                <div class="col-xl-10">
+                    <div class="recepie_text text-center">
+                        
+                        <center> <h3>Result </h3></center> 
+
+
+                       
+                        
+                        <body>
+                         
+                        
+                        <ul>
+                            <!-- <li><a class="active" href="/">Home</a></li> -->`
+                             
+                            <!-- <li><a href="#contact">联系</a></li>
+                            <li><a href="#about">关于</a></li> -->
+                        </ul>
+                        
+                        {% for p in pack %}
+                            <br/>
+                            <fieldset>
+                                <div class="container">
+                                    <div class="row">
+                                    </br>
+                               
+                                        <div class="col-sm-4">
+                                            <img src="{{ p.image }}" width="360" height="400" />
+                                        </div>
+                                        <div class="col-sm-4">
+                                            
+                                          
+                                        </div>
+                                        <div class="col-sm-4">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        {% endfor %}
+                        <br/>
+                        <br/>
+					
+						<h2 class="qcont"><b> {{ prediction }} </b></h2>
+                    
+                        <br/>
+                        <br/>
+                        <h2 align="center">Nutrition Report</h2>
+                              <center>  <div id="piechart"  style="width: 800px; height: 600px;">
+                                    <script type="text/javascript">
+                                        // Load google charts
+                                        google.charts.load('current', {'packages': ['corechart']});
+                                        google.charts.setOnLoadCallback(drawChart);
+                        
+                                        // Draw the chart and set the chart values
+                                        function drawChart() {
+                                            let dataset = [];
+                                            dataset.push(['name', 'value']);
+                                            let wholefood = {{ whole_nutrition|safe }};
+                                            wholefood.forEach(element => dataset.push([element.name, element.value]));
+                                            console.log(dataset)
+                                            let data = google.visualization.arrayToDataTable(dataset);
+                        
+                                            // Optional; add a title and set the width and height of the chart
+                                            let options = {is3D: false};
+                        
+                                            // Display the chart inside the <div> element with id="piechart"
+                                            let chart = new google.visualization.PieChart(document.getElementById('piechart'));
+                                            chart.draw(data, options);
+                                        }
+                                    </script>
+                                </div></center>
+                        </body>
+                    
+                        
+
+
+
+
+
+
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ recepie_header_area  -->
+
+    <!-- recepie_videos   -->
+     
+
+ 
+    <!--/ download_app_area -->
+  
+    <!--/ latest_trand     -->
+
+     
+    <!-- / customer_feedback_area  -->
+
+
+
+    <!-- footer  -->
+   
+<!--/ footer  -->
+
+    <!-- JS here -->
+    <script src="../static/js/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="../static/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="../static/js/popper.min.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+    <script src="../static/js/owl.carousel.min.js"></script>
+    <script src="../static/js/isotope.pkgd.min.js"></script>
+    <script src="../static/js/ajax-form.js"></script>
+    <script src="../static/js/waypoints.min.js"></script>
+    <script src="../static/js/jquery.counterup.min.js"></script>
+    <script src="../static/js/imagesloaded.pkgd.min.js"></script>
+    <script src="../static/js/scrollIt.js"></script>
+    <script src="../static/js/jquery.scrollUp.min.js"></script>
+    <script src="../static/js/wow.min.js"></script>
+    <script src="../static/js/nice-select.min.js"></script>
+    <script src="../static/js/jquery.slicknav.min.js"></script>
+    <script src="../static/js/jquery.magnific-popup.min.js"></script>
+    <script src="../static/js/plugins.js"></script>
+    <script src="../static/js/gijgo.min.js"></script>
+
+    <!--contact js-->
+    <script src="../static/js/contact.js"></script>
+    <script src="../static/js/jquery.ajaxchimp.min.js"></script>
+    <script src="../static/js/jquery.form.js"></script>
+    <script src="../static/js/jquery.validate.min.js"></script>
+    <script src="../static/js/mail-script.js"></script>
+
+    <script src="../static/js/main.js"></script>
+</body>
+
+</html>
