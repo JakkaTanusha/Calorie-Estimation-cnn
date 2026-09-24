@@ -1,0 +1,7 @@
+.venv/
+tf_env/
+tf_env310/
+__pycache__/
+*.pyc
+.env
+.vscode/
